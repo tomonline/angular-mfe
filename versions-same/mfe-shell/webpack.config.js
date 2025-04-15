@@ -2,10 +2,14 @@ const { shareAll, withModuleFederationPlugin } = require('@angular-architects/mo
 
 module.exports = withModuleFederationPlugin({
 
-  name: 'mfe-route1',
+  name: 'mfe-shell',
+
+  remotes: {
+    "mfe1": "http://localhost:4201/remoteEntry.js",    
+  },
 
   exposes: {
-    './mfe-route' : './src/app/components/mfe-route/mfe-route.component.ts',
+    './AuthService': './src/app/services/auth.service.ts',
   },
 
   shared: {
